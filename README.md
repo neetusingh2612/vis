@@ -76,6 +76,3 @@ Then open the folder in Claude Code (Local mode) or your IDE with the Claude Cod
 extension, and continue the build conversationally — it will read CLAUDE.md and
 pick up from the current phase.
 
-## License
-
-TBD.
