@@ -47,32 +47,4 @@ tests            unit + integration tests
 datasets         (git-ignored) put CAN/V2X datasets here — see datasets/README.md
 ```
 
-## Status
-
-Phases 0–5 are complete **in software**: the full reflex → adaptive → fleet
-stack, plus a simulated Phase-4 hardware testbed (CAN-FD bench + HSM). The
-`eval/experiments.py` suite runs E1–E7 and the Section 8 adversarial claims
-end-to-end and is green in CI. What remains is genuinely silicon-only (real
-CAN-FD adapter, PKCS#11/TPM HSM, analog voltage capture, on-ECU latency) and
-re-running the experiments against the real datasets for paper numbers. See the
-phase plan and current per-module status in CLAUDE.md.
-
-## Put it on GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial VIS skeleton"
-
-# GitHub CLI:
-gh repo create vis --private --source=. --push
-# or, with an empty repo already created on github.com:
-git branch -M main
-git remote add origin git@github.com:<your-username>/vis.git
-git push -u origin main
-```
-
-Then open the folder in Claude Code (Local mode) or your IDE with the Claude Code
-extension, and continue the build conversationally — it will read CLAUDE.md and
-pick up from the current phase.
 
