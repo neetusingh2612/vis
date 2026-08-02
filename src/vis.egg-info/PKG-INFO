@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: vis
+Version: 0.1.0
+Summary: Vehicular Immune System (VIS): a bio-inspired, multi-layered, self-evolving defense for connected and autonomous vehicles.
+Author: Anurag
+License: TBD
+Keywords: automotive,intrusion-detection,federated-learning,security,CAN,V2X
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: ml
+Requires-Dist: numpy>=1.24; extra == "ml"
+Requires-Dist: scikit-learn>=1.3; extra == "ml"
+Provides-Extra: fl
+Requires-Dist: flwr>=1.7; extra == "fl"
+Requires-Dist: numpy>=1.24; extra == "fl"
+Provides-Extra: v2x
+Requires-Dist: numpy>=1.24; extra == "v2x"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Provides-Extra: all
+Requires-Dist: vis[dev,fl,ml,v2x]; extra == "all"
+
+# VIS — Vehicular Immune System
+
+A bio-inspired, multi-layered, self-evolving intrusion-defense system for
+connected and autonomous vehicles: a fast **reflex** layer, a learning
+**adaptive** layer with deception, and a federated **fleet** layer that shares
+validated "antibodies" to give the whole fleet herd immunity.
+
+> New here (or using Claude Code)? Read **CLAUDE.md** first — it is the design
+> contract: architecture, data schemas, the non-negotiable rules, and the build
+> phases.
+
+## Quickstart
+
+```bash
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"
+
+pytest -q                 # run the tests (should pass out of the box)
+python eval/harness.py     # smoke run: traffic monitor catches a synthetic flood
+```
+
+For the learning/federated components, install the extras when you reach those
+phases: `pip install -e ".[ml]"` (Phase 2), `pip install -e ".[fl]"` (Phase 3).
+
+## Layout
+
+```
+src/vis/shared   data contracts (Message/Event/Antibody), traffic harness, state
+src/vis/reflex   authentication, fingerprinting, physics, traffic monitor, response
+src/vis/adaptive anomaly, decoys, correlation, antibody pipeline, V2X, LLM (advisory)
+src/vis/fleet    attestation, federated learning, secure agg + DP, validation, OTA
+eval             metrics + evaluation harness (the project's centre of gravity)
+tests            unit tests
+datasets         (git-ignored) put CAN/V2X datasets here — see datasets/README.md
+```
+
+## Status
+
+Phase 0 (foundations) and the working parts of Phase 1 (reflex) are scaffolded.
+`TODO(phaseN)` markers throughout point to what to implement next. See the phase
+plan in CLAUDE.md.
+
+## Put it on GitHub
+
+```bash
+git init
+git add .
+git commit -m "Initial VIS skeleton"
+
+# GitHub CLI:
+gh repo create vis --private --source=. --push
+# or, with an empty repo already created on github.com:
+git branch -M main
+git remote add origin git@github.com:<your-username>/vis.git
+git push -u origin main
+```
+
+Then open the folder in Claude Code (Local mode) or your IDE with the Claude Code
+extension, and continue the build conversationally — it will read CLAUDE.md and
+pick up from the current phase.
+
+## License
+
+TBD.
