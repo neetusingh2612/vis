@@ -42,7 +42,7 @@ src/vis/adaptive anomaly, decoys, correlation, antibody pipeline (+ negative sel
                  shadow runner), V2X misbehavior, LLM (advisory)
 src/vis/fleet    attestation gate, federated learning (FedAvg/Krum), secure agg + DP,
                  validation lab, signed OTA, revocation
-eval             metrics, evaluation harness, and the E1-E7 experiment suite
+eval             metrics, evaluation harness, and the experiment suite
 tests            unit + integration tests
 datasets         (git-ignored) put CAN/V2X datasets here — see datasets/README.md
 ```
